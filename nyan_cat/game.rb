@@ -1,6 +1,7 @@
 require 'gosu'
 
 require_relative 'cat'
+require_relative 'sweet'
 
 module NyanCat
   class Game < Gosu::Window
@@ -9,10 +10,15 @@ module NyanCat
       super(900, 550, fullscreen: false)
       self.caption = 'Nyan cat!'
 
-      @cat = NyanCat::Cat.new
+      @cat    = NyanCat::Cat.new
+      @sweet  = NyanCat::Sweet.new(self)
     end
 
     def update
+      @sweet.move!
+
+      @sweet.reset!(self) if @sweet.x < 0
+
       if button_down? Gosu::KbUp
         @cat.move_up!
       end
@@ -24,6 +30,7 @@ module NyanCat
 
     def draw
       @cat.draw
+      @sweet.draw
     end
 
     def button_down(id)
