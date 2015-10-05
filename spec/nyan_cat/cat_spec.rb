@@ -6,6 +6,26 @@ describe NyanCat::Cat do
 
   let(:cat) { NyanCat::Cat.new }
 
+  describe '#move_up!' do
+
+    it 'decrements the cat y position by 5' do
+      expect {
+        cat.move_up!
+      }.to change(cat, :y).by(-5)
+    end
+
+  end
+
+  describe '#move_down!' do
+
+    it 'increments the cat y position by 5' do
+      expect {
+        cat.move_down!
+      }.to change(cat, :y).by(5)
+    end
+
+  end
+
   describe '#bumped_into?' do
 
     let(:object_class)  { Struct.new(:x, :y, :width, :height) }

@@ -1,5 +1,6 @@
 require 'gosu'
 
+require_relative 'background'
 require_relative 'cat'
 require_relative 'scoreboard'
 require_relative 'sweet'
@@ -11,12 +12,16 @@ module NyanCat
       super(900, 550, fullscreen: false)
       self.caption = 'Nyan cat!'
 
+      @background = NyanCat::Background.new
       @cat        = NyanCat::Cat.new
       @sweet      = NyanCat::Sweet.new(self)
       @scoreboard = NyanCat::Scoreboard.new
+
+      start_music!
     end
 
     def update
+      @background.scroll!
       @sweet.move!
 
       @sweet.reset!(self) if @sweet.x < 0
@@ -36,6 +41,7 @@ module NyanCat
     end
 
     def draw
+      @background.draw
       @cat.draw
       @sweet.draw
       @scoreboard.draw
@@ -45,6 +51,13 @@ module NyanCat
       if id == Gosu::KbEscape
         close
       end
+    end
+
+    private
+
+    def start_music!
+      @song ||= Gosu::Song.new(self, 'assets/sounds/nyan.mp3')
+      @song.play
     end
 
   end
