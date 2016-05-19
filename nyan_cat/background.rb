@@ -1,7 +1,6 @@
 require 'gosu'
 
-module NyanCat
-  class Background
+class Background
 
   SCROLL_SPEED = 2
 
@@ -23,5 +22,4 @@ module NyanCat
     @x %= @width
   end
 
-  end
 end
