@@ -27,6 +27,9 @@ class Game < Gosu::Window
     @candy.move!
     @candy.reset!(self) if @candy.x < 0
 
+    @asteroid.move!
+    set_asteroid if @asteroid.x < 0
+
     if button_down? Gosu::KbUp
       @hero.move_up!
     end
