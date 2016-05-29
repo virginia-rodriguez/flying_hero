@@ -38,6 +38,11 @@ class Game < Gosu::Window
     if button_down? Gosu::KbDown
       @hero.move_down!
     end
+
+    if @hero.bumped_into?(@candy)
+      @scoreboard.update_score!(@candy.points)
+      @candy.reset!(self)
+    end
   end
 
   def draw
