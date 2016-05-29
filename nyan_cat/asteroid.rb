@@ -8,6 +8,10 @@ class Asteroid < FlyingItem
     @scale_y = 1
   end
 
+  def points
+    -20
+  end
+
   def draw
     @sprite.draw(@x, @y, 1, @scale_x, @scale_y)
   end

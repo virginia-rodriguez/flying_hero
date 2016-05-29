@@ -8,6 +8,7 @@ require_relative 'asteroid_big'
 require_relative 'asteroid_small'
 require_relative 'candy'
 
+
 class Game < Gosu::Window
 
   def initialize
@@ -37,6 +38,16 @@ class Game < Gosu::Window
 
     if button_down? Gosu::KbDown
       @hero.move_down!
+    end
+
+    if @hero.bumped_into?(@asteroid)
+      @scoreboard.update_score!(@asteroid.points)
+      @asteroid.reset!(self)
+    end
+
+    if @hero.bumped_into?(@candy)
+      @scoreboard.update_score!(@candy.points)
+      @candy.reset!(self)
     end
   end
 
