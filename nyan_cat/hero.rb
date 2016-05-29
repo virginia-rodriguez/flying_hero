@@ -17,4 +17,11 @@ class Hero
     sprite.draw(@x, @y, 1)
   end
 
+  def move_up!
+    @y -= 5
+  end
+
+  def move_down!
+    @y += 5
+  end
 end

@@ -16,6 +16,14 @@ class Game < Gosu::Window
 
   def update
     @background.scroll!
+
+    if button_down? Gosu::KbUp
+      @hero.move_up!
+    end
+
+    if button_down? Gosu::KbDown
+      @hero.move_down!
+    end
   end
 
   def draw
