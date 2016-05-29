@@ -2,8 +2,6 @@ require 'gosu'
 
 class Background
 
-  SCROLL_SPEED = 2
-
   attr_accessor :x, :width
 
   def initialize
@@ -15,11 +13,6 @@ class Background
   def draw
     @image.draw(@x, 0, 0)
     @image.draw(@x - @image.width, 0, 0)
-  end
-
-  def scroll!
-    @x -= SCROLL_SPEED
-    @x %= @width
   end
 
 end
