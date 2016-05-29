@@ -18,30 +18,6 @@ class Hero
     sprite.draw(@x, @y, 1)
   end
 
-  def bumped_into?(object)
-    self_top    = @y
-    self_bottom = @y + @height
-    self_left   = @x
-    self_right  = @x + @width
-
-    object_top    = object.y
-    object_bottom = object.y + object.height
-    object_left   = object.x
-    object_right  = object.x + object.width
-
-    if self_top > object_bottom
-      false
-    elsif self_bottom < object_top
-      false
-    elsif self_left > object_right
-      false
-    elsif self_right < object_left
-      false
-    else
-      true
-    end
-  end
-
   def move_up!
     @y -= 5
   end
