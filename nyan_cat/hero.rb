@@ -10,7 +10,6 @@ class Hero
     @y        = 200
     @width    = @sprites.first.width
     @height   = @sprites.first.height
-
   end
 
   def draw

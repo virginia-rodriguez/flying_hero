@@ -20,6 +20,9 @@ class Game < Gosu::Window
   def update
     @background.scroll!
 
+    @candy.move!
+    @candy.reset!(self) if @candy.x < 0
+
     if button_down? Gosu::KbUp
       @hero.move_up!
     end
