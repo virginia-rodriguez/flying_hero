@@ -11,6 +11,10 @@ class Game < Gosu::Window
     @background = Background.new
   end
 
+  def update
+    @background.scroll!
+  end
+
   def draw
     @background.draw
   end
