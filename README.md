@@ -1,9 +1,5 @@
-# nyan-cat
-
-To install the dependencies, run the following:
-
-    bundle install
+# Flying hero!
 
 To start the game, run the following:
 
-    ruby nyan_cat.rb
+    ruby flying_hero.rb
